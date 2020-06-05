@@ -4,7 +4,7 @@ let app = new Vue ({
         product: 'Socks',
         image: './assets/vmSocks-green.png',
         inventory: 100,
-        inStock: true,
+        inStock: false,
         details: ["80% cotton", "20% polyester", "Gender neutral"],   
         variants: [
             {

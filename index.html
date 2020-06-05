@@ -16,15 +16,21 @@
             <div class="product-info">
                 <h1>{{product}}</h1>
                 <p v-if="inStock">In Stock</p>
-                <p v-else>Out of Stock</p>
+                <p v-else 
+                    :class="{outOfStock: !inStock}">Out of Stock</p>
                 <ul>
                     <li v-for="detail in details">{{detail}}</li>
-                    <div v-for="variant in variants" :key="variant.variantId">
-                        <p @mouseover="updateProduct(variant.variantImage)">{{variant.variantColor}}</p>
+                    <div v-for="variant in variants" 
+                    :key="variant.variantId"
+                    class="color-box"
+                    :style="{ backgroundColor: variant.variantColor }"
+                    @mouseover="updateProduct(variant.variantImage)">
                     </div>
                 </ul>
                 
-                <button v-on:click="addToCart">Add to Cart</button>
+                <button v-on:click="addToCart" 
+                        :disabled="!inStock"
+                        :class="{disabledButton: !inStock}">Add to Cart</button>
                 <div class="cart">
                     <p>Cart({{cart}})</p>
                 </div>
@@ -34,6 +40,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
     <script src="./main.js"></script>
   </body>
 </html>
