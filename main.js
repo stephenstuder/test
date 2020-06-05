@@ -3,6 +3,7 @@ let app = new Vue ({
     data: {
         product: 'Socks',
         image: './assets/vm-socks.png',
-        url: 'https://amazon.com'    
+        inventory: 100,
+        onSale: true    
     }
 })
