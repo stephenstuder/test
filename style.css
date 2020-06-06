@@ -91,3 +91,11 @@ body {
   .outOfStock {
       text-decoration: line-through;
   }
+  .details {
+      display: flex;
+      width: 100%;
+  }
+  .onSale {
+      color: red;
+      margin-right: 5px;
+  }
