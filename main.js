@@ -76,14 +76,14 @@ Vue.component("product", {
           variantId: 2234,
           variantColor: "green",
           variantImage: "./assets/vmSocks-green.jpg",
-          variantQuantity: 10,
+          variantQuantity: 5,
           variantOnSale: true,
         },
         {
           variantId: 2235,
           variantColor: "blue",
           variantImage: "./assets/vmSocks-blue.jpg",
-          variantQuantity: 0,
+          variantQuantity: 2,
           variantOnSale: false,
         },
       ],
@@ -93,6 +93,7 @@ Vue.component("product", {
   methods: {
     addToCart() {
       this.$emit("add-to-cart", this.variants[this.selectedVariant].variantId);
+      this.variants[this.selectedVariant].variantQuantity--;
     },
     updateProduct(index) {
       this.selectedVariant = index;
